@@ -19,6 +19,7 @@ venv/bin/pip install flask
 
 #Simple TEST
 
+Check if exists ls command
 
 curl http://localhost:5000/v1.0/shell/ls
 
@@ -26,3 +27,14 @@ curl http://localhost:5000/v1.0/shell/ls
 {
   "output": "/bin/ls"
 }
+
+
+List / directory
+
+curl -s -u admin:admin http://localhost:5000/v1.0/shell -X POST -H "Accept: application/json" -H "Content-type: application/json" -d '{"command":"ls","args":"/"}'  
+
+{
+  "output": "bin\nboot\nboot-sav\ncdrom\ndev\netc\nhome\ninitrd.img\ninitrd.img.old\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nrun\nsbin\nsrv\nsys\ntmp\nusr\nvar\nvmlinuz\nvmlinuz.old"
+}
+
+
